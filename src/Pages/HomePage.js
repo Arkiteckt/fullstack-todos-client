@@ -1,18 +1,12 @@
-const HomePage = (props) => {
-    const {urlEndpoint} = props
-
+import ToDoCard from "../Components/ToDoCard"
+const HomePage = ({ toDoList }) => {
     return (
         <div>
-    <h1>Fullstack ToDo Application</h1>
-    <h2>title</h2>
-    <p>ID: {toDo}</p>
-    <p>Description: {toDo}</p>
-    <p>Priority: {toDo}</p>
-    <p>Is Complete: {Complete}</p>
-    <p>Creation Date: {toDo} creationDate.toString()</p>
-    <p>Last Modified: {toDo} lastModified.toString()</p>
-    <p>Completed Date</p>
-    <HomePage toDoList={toDoList}/>
+        <h1>Fullstack ToDo Application</h1>
+        {toDoList.map((todoItem) => {
+            return <ToDoCard todoItem={todoItem} />
+        })}
+    
    
         </div>
     )

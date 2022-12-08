@@ -8,7 +8,7 @@ const ToDoFormPage = (props) => {
 	const [priority, setPriority] = useState("")
 
     const handleCreateToDo = async () => {
-		setSuccessMessage("")
+		// setSuccessMessage("") //Double check this
 		const response = await fetch(`${urlEndpoint}/todos/create-one`, {
 			method: "POST",
 			headers: {
@@ -20,8 +20,10 @@ const ToDoFormPage = (props) => {
 				priority,
 			})
 		})
+	}
 
-
+	// Add a button that says "Create ToDo" and have it call handleCreateToDo onClick.
+	// Add a programmatic redirect to "/" using react-router-dom in the Create ToDo button onClick handler.
 
     return (
         <div>
@@ -33,14 +35,21 @@ const ToDoFormPage = (props) => {
             <br/>
             <label>Description</label>
         <input type="textarea" onChange={(e)=>{
-				setTitle(e.target.value)
+				setDescription(e.target.value)
 			}}/>
             <br/>
             <label>Priority</label>
+			{/* select id="Priority">
+			<option value="High">High</option>
+			<option value="Medium">Medium</option>
+			<option value="Low">Low</option> */}
         <input type="textarea" onChange={(e)=>{
-				setTitle(e.target.value)
+				setPriority(e.target.value)
 			}}/>
         </div>
     )
 }
+
 export default ToDoFormPage
+
+
